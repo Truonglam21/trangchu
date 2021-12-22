@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+      <div class="card">
+        <div class="card-header">
+          Add Video
+        </div>
+        <div class="card-body">
+          <form action="" #addVideo=ngForm>
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input type="text"
+                class="form-control" name="title" id="title" aria-describedby="TitleHId" placeholder="Title" [(ngModel)]="Data.title" #title="ngModel" required>
+              <small id="TitleHId" class="form-text text-muted" *ngIf="title.errors?.invalid?.required">Title Is Required</small>
+            </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <input type="text"
+                class="form-control" name="description" id="description" aria-describedby="DescriptionHId" placeholder="Description" [(ngModel)]="Data.description">
+            </div>
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input type="file" class="form-control-file" name="image" id="image" placeholder="Image" aria-describedby="ImageHelpId" (change)="uploadFile($event)" [(ngModel)]="Data.image">
+                <!-- <img *ngIf="path" [src]="path" [alt]="path" width="100px"> -->
+                <small id="fileHelpId" class="form-text text-muted">Image Is Required</small>
+            </div>
+            <div class="form-group">
+              <label for="Path">Path</label>
+              <input type="text"
+                class="form-control" name="Path" id="Path" aria-describedby="helpId" placeholder="Path" [(ngModel)]="path">
+            </div>
+          </form>
+        </div>
+        <div class="card-footer text-muted">
+          <button type="button" class="btn btn-primary btn-block" (click)="save()" [disabled]="addVideo.invalid">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
